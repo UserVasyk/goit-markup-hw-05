@@ -11,6 +11,7 @@
   --tertiary-bg-color: #f5f4fa;
   --paragraph-color: #757575;
   --icons-color: #afb1b8;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list {
   margin: 0;
@@ -70,10 +71,7 @@ body {
   color: currentColor;
 }
 .header-list-link:hover,
-.header-list-link:focus,
-.header-info-link:hover,
-.header-info-link:focus {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.header-list-link:focus {
   color: var(--brand-color-2);
 }
 .header-list-nav {
@@ -83,7 +81,12 @@ body {
   position: relative;
   color: var(--brand-color-2);
 }
-
+.header-list-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 32px 0;
+  transition: color var(--transition);
+}
 /* hero */
 .hero {
   background-color: rgba(196, 196, 196, 1);
@@ -126,11 +129,12 @@ body {
   margin-right: auto;
   border-radius: 4px;
   padding: 10px 32px;
+  letter-spacing: 0.06em;
+  transition: background-color var(--transition);
 }
 .hero-button:hover,
 .hero-button:focus {
   background-color: #188ce8;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* feature */
 .feature-title {
@@ -173,9 +177,11 @@ body {
 }
 .footer-link-map {
   color: var(--primary-bg-color);
+  transition: color var(--transition);
 }
 .footer-link-info {
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition);
 }
 .footer-address {
   font-style: inherit;
@@ -185,16 +191,20 @@ body {
   color: var(--brand-color-1);
   background-color: var(--tertiary-bg-color);
   border: none;
+  border-radius: 4px;
+  padding: 6px 22px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.62;
+  transition: color var(--transition), background-color var(--transition),
+    box-shadow var(--transition);
 }
 .filter-button:hover,
 .filter-button:focus {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--primary-bg-color);
   background-color: var(--brand-color-2);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 /* Для постерів у портфоліо */
 .portfolio-link {
@@ -249,11 +259,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.header-list-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 32px 0;
-}
+
 .section {
   padding-bottom: 94px;
   padding-top: 94px;
@@ -270,10 +276,6 @@ img {
 
 .filter-item:not(:last-child) {
   margin-right: 8px;
-}
-.filter-button {
-  border-radius: 4px;
-  padding: 6px 22px;
 }
 
 .container-portfolio {
@@ -382,12 +384,6 @@ img {
   max-height: 120px;
 }
 
-.link-social:hover .icon,
-.link-social:focus .icon {
-  fill: var(--primary-bg-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .list-social {
   display: flex;
   flex-wrap: wrap;
@@ -407,11 +403,12 @@ img {
   border-radius: 50%;
   padding: 12px;
   fill: var(--icons-color);
+  transition: fill var(--transition), background-color var(--transition);
 }
 .clients-icon {
   width: 106px;
   height: 60px;
-  fill: #afb1b8;
+  fill: currentColor;
 }
 
 .card-set .clients-item {
@@ -419,21 +416,18 @@ img {
 }
 .link-clients:hover,
 .link-clients:focus {
-  border: 1px solid #2196f3;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--brand-color-2);
 }
-.link-clients:hover .clients-icon,
-.link-clients:focus .clients-icon {
-  fill: var(--brand-color-2);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 .link-clients {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 32px;
-  border: 1px solid #afb1b8;
+  border: 1px solid currentColor;
   border-radius: 4px;
+  color: var(--icons-color);
+  transition: color var(--transition);
 }
 
 .main-list-footer {
@@ -441,6 +435,10 @@ img {
   flex-wrap: wrap;
   gap: 70px;
   align-items: baseline;
+}
+.footer-address .link:hover,
+.footer-address .link:focus {
+  color: var(--brand-color-2);
 }
 .footer-title-info {
   margin-bottom: 20px;
@@ -452,18 +450,19 @@ img {
 
 .portfolio-link:hover,
 .portfolio-link:focus {
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-
+.portfolio-link {
+  transition: box-shadow var(--transition);
+}
 .footer .link-social {
   background-color: #ffffff1a;
   fill: var(--primary-bg-color);
 }
 .link-social:hover,
 .link-social:focus {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--primary-bg-color);
   background-color: var(--brand-color-2);
 }
 .container-about {
@@ -475,15 +474,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 27px;
-  padding-bottom: 27px;
+  padding: 27px;
 }
 .item-title {
   color: var(--primary-bg-color);
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.14;
 }
 .header-list-link.current::after {
   position: absolute;
@@ -515,12 +513,11 @@ img {
   height: 100%;
   padding: 63px 24px;
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition);
 }
 .portfolio-link:hover .scroll-container,
 .portfolio-link:focus .scroll-container {
   transform: translateY(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop {
   position: fixed;
@@ -528,10 +525,10 @@ img {
   height: 100%;
   background-color: #00000033;
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition), visibility var(--transition);
   top: 0;
   left: 0;
+  z-index: 100;
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -551,20 +548,19 @@ img {
   border-radius: 4px;
   top: 50%;
   left: 50%;
-
+  z-index: 999;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition);
 }
 
 .icon-close {
   width: 11px;
   height: 11px;
   fill: #000000;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--transition);
 }
 
-.link-close {
+.button-close {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -572,10 +568,11 @@ img {
   padding: 9px 10px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-bg-color);
   top: 8px;
   right: 8px;
+  cursor: pointer;
 }
-.link-close:hover .icon-close {
+.button-close:hover .icon-close {
   fill: var(--brand-color-2);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
